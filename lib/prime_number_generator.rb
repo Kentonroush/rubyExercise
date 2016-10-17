@@ -11,7 +11,6 @@ class PrimeNumberGenerator
     for i in 2..max
       # The second condition here will only ever be true for 2, but handling it this way is technically more accurate to the definition of primality than treating 2 as a special case.
       if num % i == 0 and num != i then
-        # puts "#{num} is divisible by #{i} - not prime"
         return false
       end
     end
@@ -21,6 +20,7 @@ class PrimeNumberGenerator
   def self.generate(first, second)
     primes = Array.new
     
+    # Ensure range is always increasing, regardless of order parameters are passed in.
     for i in (first > second ? second..first : first..second)
       if isPrime(i) then
         primes.push(i)

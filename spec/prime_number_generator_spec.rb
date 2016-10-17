@@ -5,14 +5,14 @@ describe PrimeNumberGenerator do
   
   describe ".generate" do
   
-    # Test case: Basic functional test.
+    # Test case: Basic functional test - Lowest possible primes.
     context "given a range from 2 to 5" do
       it "returns [2, 3, 5]" do
         expect(PrimeNumberGenerator.generate(2, 5)).to eql([2, 3, 5])
       end
     end
     
-    # Test case: Basic functional test.
+    # Test case: Basic functional test - Required test case.
     context "given a range from 7900 to 7920" do
       it "returns [7901, 7907, 7919]" do
         expect(PrimeNumberGenerator.generate(7900, 7920)).to eql([7901, 7907, 7919])
