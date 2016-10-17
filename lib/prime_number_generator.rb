@@ -6,10 +6,15 @@ class PrimeNumberGenerator
     # Only integers less than the square root of the integer being tested for primality need be checked.
     # In theory there's any number of ways to speed this up, testing modulus division on only a fraction of even that - Technically, only other primes less than the tested number need included.
     # ...But the faster the method of isolating primes, the more complex and hard to read it becomes. This isn't a research paper for mathematics, so clarity of code seems a higher priority.
+    
+    # Numbers less than 2 will pass this test, but are not technically prime, so we need a special case to handle them.
+    if num < 2 then return false end
+    
     max = Math.sqrt(num).ceil
     
     for i in 2..max
-      # The second condition here will only ever be true for 2, but handling it this way is technically more accurate to the definition of primality than treating 2 as a special case.
+      # The second condition here will only ever be true for 2, but handling it this way is technically more accurate to the definition of primality than treating 2 as a special case alongside the numbers less than it.
+      # ...So in other words, this program could be faster with minimal effort, but I decided to be a math nerd about it.
       if num % i == 0 and num != i then
         return false
       end
